@@ -1,0 +1,346 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*--------------------*/
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F4F2EE;
+}
+
+.block__canvas {
+  border: 1px solid red;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  background-color: #1E1E1E;
+}
+
+button {
+  height: 60px;
+  font-size: 32px;
+  border-radius: 10px;
+  color: white;
+  background-color: #51A4C8;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 75px;
+  background-color: #2D2D30;
+  border-bottom: 2px solid #51A4C8;
+}
+
+header .center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: flex;
+}
+
+header .center .settings {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+  font-size: 22px;
+  color: white;
+}
+
+header .center .settings .valuecontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .center .settings .valuecontainer .value {
+  height: 30px;
+  width: 90px;
+  margin-left: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgba(75, 75, 75, 0.46);
+  border-radius: 5px;
+  border: 1px solid #51A4C8;
+  color: white;
+  font-size: 18px;
+}
+
+header .center .settings .valuecontainer input::-webkit-outer-spin-button,
+header .center .settings .valuecontainer input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+header button {
+  height: 40px;
+  font-size: 24px;
+  margin-left: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  background: url("/img/CAT_blue1_50000.png") center no-repeat;
+}
+
+.block .center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.block .center.disable {
+  display: none;
+}
+
+.block .center .block__dropbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #51A4C8;
+  border-radius: 15px;
+  width: 800px;
+  height: 600px;
+  background: url("/img/icons/box.png") center/120px 120px no-repeat rgba(81, 164, 200, 0.14);
+}
+
+.block .center .block__dropbox div:first-child {
+  margin-top: 50px;
+}
+
+.block .center .block__dropbox div:nth-child(2) {
+  margin-top: 40px;
+}
+
+.block .center .block__dropbox div:nth-child(3) {
+  margin-top: 195px;
+}
+
+.block .center .block__dropbox div:nth-child(4) {
+  margin-top: 55px;
+}
+
+.block .center .block__dropbox div h1 {
+  width: 700px;
+  color: white;
+  font-size: 32px;
+  text-align: center;
+}
+
+.block .center .block__dropbox div p {
+  width: 200px;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 75px;
+  background-color: #2D2D30;
+  border-top: 2px solid #51A4C8;
+}
+
+footer .center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .center p {
+  font-size: 20px;
+  color: white;
+}
+
+footer .center a {
+  font-size: 20px;
+  color: #51A4C8;
+}
+
+footer .center a:hover {
+  text-decoration: underline;
+}
+
+.center {
+  width: 1080px;
+  height: 100%;
+}
+
+.logo a {
+  font-size: 45px;
+}
+
+.logo a .left {
+  color: white;
+}
+
+.logo a .right {
+  color: #51A4C8;
+}
+
+.slidecontainer {
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+.slidecontainer .slider {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 6px;
+  border-radius: 3px;
+  background: white;
+  outline: none;
+  -webkit-transition: opacity .15s ease-in-out;
+  transition: opacity .15s ease-in-out;
+}
+
+.slidecontainer .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: #51A4C8;
+  cursor: pointer;
+}
+
+.slidecontainer .slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #51A4C8;
+  cursor: pointer;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="center">
+                <div class="logo">
+                    <a href="/index.html"><span class="left">Polix</span><span class="right">JS</span></a>
+                </div>
+                <div class="settings">
+                    <div class="valuecontainer">
+                        <div><p>Triangles:</p></div>
+                        <input type="number" name="value" step="1" min="100" max="100000" value="100" class="value" id="trianglesValue">
+                    </div>
+                    <div class="slidecontainer">
+                        <input type="range" step="100" min="100" max="100000" value="25000" class="slider" id="trianglesSlider">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button>Run</button>
+                    <button>Save</button>
+                </div>
+            </div>
+        </header>
+        <div class="block">
+            <div class="center" id="chooseBox">
+                <div class="block__dropbox">
+                    <div><h1>This application decorates images using a triangulation algorithm.</h1></div>
+                    <div><p>Drag and drop an image</p></div>
+                    <div><p>Or</p></div>
+                    <div>
+                        <button onclick="ChooseFile()">Choose file</button>
+                    </div>
+                </div>
+            </div>
+            <div class="block__canvas">
+                <canvas id="viewport"></canvas>
+            </div>
+        </div>
+        <footer>
+            <div class="center">
+                <div class="footer__block">
+                    <p>© Andrew Kontanistov 2020</p>
+                </div>
+                <div class="footer__block">
+                    <p>See source code on <a href="#">GitHub</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+<script src="scrips/Triangulation/Helper.js"></script>
+<script src="scrips/Triangulation/Vector2.js"></script>
+<script src="scrips/Triangulation/Arc.js"></script>
+<script src="scrips/Triangulation/Triangle.js"></script>
+<script src="scrips/Triangulation/DynamicCache.js"></script>
+<script src="scrips/Triangulation/Triangulation.js"></script>
+<script src="scrips/Triangulation/script.js"></script>
+</html>
