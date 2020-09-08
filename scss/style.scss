@@ -91,6 +91,8 @@ header{
     }
 }
 
+
+
 .block{
 
     display: flex;
@@ -140,6 +142,7 @@ header{
             background: url("/img/icons/box.png") center/120px 120px no-repeat rgba(81, 164, 200, 0.14);
 
             div{
+
                 &:first-child{
                     margin-top: 50px;
                 }
@@ -253,7 +256,6 @@ footer{
         cursor: pointer;
       }
 }
- 
 
 //Индикатор загрузки
 .cssload-container {
@@ -302,4 +304,10 @@ footer{
 
 @-moz-keyframes cssload-spin {
 	100%{ -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@media (min-width: 1981px) {
+    .block{
+        background: url("/img//CAT_blue1_4k_50000.png") center/100% no-repeat;
+    }
 }

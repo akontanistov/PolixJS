@@ -13,12 +13,12 @@ var file = null;
 var triangulation = null;
 var img = new Image();
 
-
-//Запуск диалогового окна
+//Запуск окна выбора файла
 function ChooseFile(){
 
   var input = document.createElement('input');
   input.type = 'file';
+  input.accept = 'image/*';
 
   input.onchange = e => { 
   
@@ -49,6 +49,77 @@ function ChooseFile(){
   
   }
   input.click();
+}
+
+//Обработка drug and drop файла
+function dragOverHandler(e) {
+  // Prevent default behavior (Prevent file from being opened)
+  e.preventDefault();
+}
+
+function dropHandler(e) {
+  // Prevent default behavior (Prevent file from being opened)
+  e.preventDefault();
+
+  file = e.dataTransfer.files[0];
+
+  if(file['type'].split('/')[0] === 'image'){
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+  
+    reader.onload = event => {
+       img.addEventListener("load", () => {
+         //Скрытие блока для загрузки изображения
+         document.getElementById("chooseBox").className = 'center disable';
+         document.getElementById("canvasBox").className = 'block__canvas';
+         document.getElementById("mainBox").className = 'block active';
+         document.getElementById("btnRun").className = '';
+  
+         //Установка размеров canvas по размеру изображения
+         canvas.width = img.naturalWidth;
+         canvas.height = img.naturalHeight;
+  
+         //Запись изображения в canvas
+         context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+         context.drawImage(img, 0, 0);
+       });
+  
+       img.src = event.target.result;
+    }
+  }
+  else{
+    alert('This file is not image. Please, try drag and drop an image.');
+  }
+}
+
+function dropHandlerOld(e) {
+  console.log('test');
+  let dt = e.dataTransfer
+  file = dt.files[0];
+
+  var reader = new FileReader();
+  reader.readAsDataURL(file);
+
+  reader.onload = event => {
+     img.addEventListener("load", () => {
+       //Скрытие блока для загрузки изображения
+       document.getElementById("chooseBox").className = 'center disable';
+       document.getElementById("canvasBox").className = 'block__canvas';
+       document.getElementById("mainBox").className = 'block active';
+       document.getElementById("btnRun").className = '';
+
+       //Установка размеров canvas по размеру изображения
+       canvas.width = img.naturalWidth;
+       canvas.height = img.naturalHeight;
+
+       //Запись изображения в canvas
+       context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+       context.drawImage(img, 0, 0);
+     });
+
+     img.src = event.target.result;
+  }
+
 }
 
 function Run(){
@@ -147,7 +218,6 @@ function Clean(){
     }
   }
 }
-
 
 function RndVectors(_count, _points) {
   for (var i = 0; i < _count; i++) {

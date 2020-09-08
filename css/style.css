@@ -410,3 +410,9 @@ footer .center a:hover {
     transform: rotate(360deg);
   }
 }
+
+@media (min-width: 1981px) {
+  .block {
+    background: url("/img//CAT_blue1_4k_50000.png") center/100% no-repeat;
+  }
+}
