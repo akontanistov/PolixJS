@@ -23,8 +23,9 @@
                     </div>
                 </div>
                 <div class="buttons">
-                    <button onclick="Run()">Run</button>
-                    <button>Save</button>
+                    <button onclick="OnSpiner(); setTimeout(Run, 100);" id="btnRun" class="disable">Run</button>
+                    <button onclick="Clean()" id="btnClean" class="disable">Clean</button>
+                    <button onclick="saveCanvasAsImageFile()" id="btnSave" class="disable">Save</button>
                 </div>
             </div>
         </header>
@@ -49,10 +50,13 @@
                     <p>© Andrew Kontanistov 2020</p>
                 </div>
                 <div class="footer__block">
-                    <p>See source code on <a href="#">GitHub</a></p>
+                    <p>See source code on <a href="https://github.com/Andreano21/PolixJS">GitHub</a></p>
                 </div>
             </div>
         </footer>
+        <div class="cssload-container" id="spinerBox">
+            <div class="cssload-speeding-wheel"></div>
+        </div>
     </div>
 </body>
 <script src="scrips/Triangulation/Helper.js"></script>

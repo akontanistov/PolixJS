@@ -22,8 +22,14 @@ button{
     border-radius: 10px;
     color: white;
     background-color: #51A4C8;
+    border: 1px solid #51A4C8;
     padding-left: 20px;
     padding-right: 20px;
+
+    &.disable{
+        background-color: #4B4B4B;
+        border: 1px solid #51A4C8;
+    }
 }
 
 header{
@@ -247,4 +253,53 @@ footer{
         cursor: pointer;
       }
 }
-  
+ 
+
+//Индикатор загрузки
+.cssload-container {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    top: calc(50% - 69px);
+	width: 100%;
+    height: 138px;
+    
+    &.active{
+        display: block;
+    }
+}
+
+.cssload-speeding-wheel {
+	width: 138px;
+	height: 138px;
+	margin: 0 auto;
+	border: 8px solid rgb(81,164,200);
+	border-radius: 50%;
+	border-left-color: transparent;
+	border-right-color: transparent;
+	animation: cssload-spin 650ms infinite linear;
+		-o-animation: cssload-spin 650ms infinite linear;
+		-ms-animation: cssload-spin 650ms infinite linear;
+		-webkit-animation: cssload-spin 650ms infinite linear;
+		-moz-animation: cssload-spin 650ms infinite linear;
+}
+
+@keyframes cssload-spin {
+	100%{ transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-o-keyframes cssload-spin {
+	100%{ -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-ms-keyframes cssload-spin {
+	100%{ -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-webkit-keyframes cssload-spin {
+	100%{ -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-moz-keyframes cssload-spin {
+	100%{ -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}

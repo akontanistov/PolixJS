@@ -95,8 +95,14 @@ button {
   border-radius: 10px;
   color: white;
   background-color: #51A4C8;
+  border: 1px solid #51A4C8;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+button.disable {
+  background-color: #4B4B4B;
+  border: 1px solid #51A4C8;
 }
 
 header {
@@ -360,4 +366,47 @@ footer .center a:hover {
   height: 20px;
   background: #51A4C8;
   cursor: pointer;
+}
+
+.cssload-container {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  top: calc(50% - 69px);
+  width: 100%;
+  height: 138px;
+}
+
+.cssload-container.active {
+  display: block;
+}
+
+.cssload-speeding-wheel {
+  width: 138px;
+  height: 138px;
+  margin: 0 auto;
+  border: 8px solid #51a4c8;
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  animation: cssload-spin 650ms infinite linear;
+  -o-animation: cssload-spin 650ms infinite linear;
+  -ms-animation: cssload-spin 650ms infinite linear;
+  -webkit-animation: cssload-spin 650ms infinite linear;
+  -moz-animation: cssload-spin 650ms infinite linear;
+}
+
+@keyframes cssload-spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes cssload-spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
