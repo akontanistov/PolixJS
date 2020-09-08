@@ -74,23 +74,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------*/
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   font-family: 'Montserrat', sans-serif;
   background-color: #F4F2EE;
 }
 
-.block__canvas {
-  border: 1px solid red;
-}
-
 .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   height: 100%;
   background-color: #1E1E1E;
 }
@@ -189,8 +183,31 @@ header button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100%;
+  height: calc(100% - 150px);
+  margin: 0 auto;
+  overflow: auto;
   background: url("/img/CAT_blue1_50000.png") center no-repeat;
+}
+
+.block.active {
+  background-image: none;
+  background-color: #1E1E1E;
+}
+
+.block .block__canvas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.block .block__canvas.disable {
+  display: none;
 }
 
 .block .center {

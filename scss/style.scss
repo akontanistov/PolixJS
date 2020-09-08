@@ -1,27 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import "_nullstyle";
 
+html{
+    height: 100%;
+}
+
 body{
+    height: 100%;
     font-family: 'Montserrat', sans-serif;
     background-color: #F4F2EE;
 }
 
-canvas{
-    //overflow:scroll;
-    //max-width: 100%;
-    //max-height: 100%;
-}
-
-.block__canvas{
-    //overflow: auto;
-    border: 1px solid red;
-}
-
 .container{
-    display: flex;
-    flex-direction: column;
     height: 100%;
-    //min-height: 100%;
     background-color: #1E1E1E;
 }
 
@@ -99,8 +90,26 @@ header{
     display: flex;
     justify-content: center;
 
-    height: 100%;
+    height: calc(100% - 150px);
+    margin: 0 auto;
+    overflow: auto;
+
     background: url("/img/CAT_blue1_50000.png") center no-repeat;
+
+    &.active{
+        background-image: none;
+        background-color: #1E1E1E;
+    }
+
+    .block__canvas{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+        &.disable{
+            display: none;
+        }
+    }
 
     .center
     {

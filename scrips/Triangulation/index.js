@@ -51,9 +51,9 @@ for (var j = 0; j < triangles; j++) {
 end = new Date().getTime();
 console.log(end - start);
 
-function RndVectors(count) {
-  for (var i = 0; i < count; i++) {
-    points.push(
+function RndVectors(_count, _points) {
+  for (var i = 0; i < _count; i++) {
+    _points.push(
       new Vector2(Helper.RndRange(0, 1920), Helper.RndRange(0, 1080))
     );
   }

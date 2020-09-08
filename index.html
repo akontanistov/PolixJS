@@ -16,19 +16,19 @@
                 <div class="settings">
                     <div class="valuecontainer">
                         <div><p>Triangles:</p></div>
-                        <input type="number" name="value" step="1" min="100" max="100000" value="100" class="value" id="trianglesValue">
+                        <input type="number" name="value" step="1" min="100" max="100000" value="25000" class="value" id="trianglesValue">
                     </div>
                     <div class="slidecontainer">
                         <input type="range" step="100" min="100" max="100000" value="25000" class="slider" id="trianglesSlider">
                     </div>
                 </div>
                 <div class="buttons">
-                    <button>Run</button>
+                    <button onclick="Run()">Run</button>
                     <button>Save</button>
                 </div>
             </div>
         </header>
-        <div class="block">
+        <div class="block"  id="mainBox">
             <div class="center" id="chooseBox">
                 <div class="block__dropbox">
                     <div><h1>This application decorates images using a triangulation algorithm.</h1></div>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="block__canvas">
+            <div class="block__canvas disable" id="canvasBox">
                 <canvas id="viewport"></canvas>
             </div>
         </div>

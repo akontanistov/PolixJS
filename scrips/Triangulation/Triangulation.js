@@ -96,11 +96,13 @@ class Triangulation {
         this.CheckDelaunayAndRebuild(OldArc2);
       }
     }
-    //Дополнительный проход, улучшает соответствие условию Делоне
-    for (var z = 0; z < this.triangles.length; z++) {
-      this.CheckDelaunayAndRebuild(this.triangles[z].arcs[0]);
-      this.CheckDelaunayAndRebuild(this.triangles[z].arcs[1]);
-      this.CheckDelaunayAndRebuild(this.triangles[z].arcs[2]);
+    //Дополнительные проходы, улучшают соответствие условию Делоне
+    for(var i = 0; i < 2; i++){
+      for (var z = 0; z < this.triangles.length; z++) {
+        this.CheckDelaunayAndRebuild(this.triangles[z].arcs[0]);
+        this.CheckDelaunayAndRebuild(this.triangles[z].arcs[1]);
+        this.CheckDelaunayAndRebuild(this.triangles[z].arcs[2]);
+      }
     }
   }
 
