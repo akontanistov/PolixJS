@@ -16,7 +16,7 @@
                 <div class="settings">
                     <div class="valuecontainer">
                         <div><p>Triangles:</p></div>
-                        <input type="number" name="value" step="1" min="100" max="100000" value="25000" class="value" id="trianglesValue">
+                        <div><input type="number" name="value" step="1" min="100" max="100000" value="25000" class="value" id="trianglesValue"></div>
                     </div>
                     <div class="slidecontainer">
                         <input type="range" step="100" min="100" max="100000" value="25000" class="slider" id="trianglesSlider">
@@ -33,8 +33,8 @@
             <div class="center" id="chooseBox">
                 <div class="block__dropbox" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
                     <div><h1>This application decorates images using a triangulation algorithm.</h1></div>
-                    <div><p>Drag and drop an image</p></div>
-                    <div><p>Or</p></div>
+                    <div class="onlyDesktop"><p>Drag and drop an image</p></div>
+                    <div class="onlyDesktop"><p>Or</p></div>
                     <div>
                         <button onclick="ChooseFile()">Choose file</button>
                     </div>

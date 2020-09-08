@@ -93,7 +93,6 @@ function dropHandler(e) {
 }
 
 function dropHandlerOld(e) {
-  console.log('test');
   let dt = e.dataTransfer
   file = dt.files[0];
 
@@ -152,7 +151,7 @@ function Run(){
     //Отрисовка треугольников
     for (var j = 0; j < triangles; j++) {
       triangle = triangulation.triangles[j];
-    
+
       //Определение координат центра треугольника
       var center = triangle.centroid;
       var centerX = Math.trunc(center.x);
