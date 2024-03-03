@@ -3,11 +3,9 @@ class Arc {
     this.A = _A;
     this.B = _B;
 
-    //Ссылка на треугольники в которые входит ребро:
     this.trAB = null;
     this.trBA = null;
 
-    //Ребро является границей триангуляции если не ссылается на 2 треугольника
     this.isBorder = false;
   }
 

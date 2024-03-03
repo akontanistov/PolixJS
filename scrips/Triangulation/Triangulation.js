@@ -4,7 +4,6 @@ class Triangulation {
     this.triangles = [];
     this.cache = new DynamicCache(this.points[2]);
 
-    //Добавление суперструктуры
     this.triangles.push(
       new Triangle(this.points[0], this.points[1], this.points[2])
     );
@@ -12,11 +11,9 @@ class Triangulation {
       new Triangle(this.triangles[0].arcs[2], this.points[3])
     );
 
-    //Добавление ссылок в ребра на смежные треугольники суперструктуры
     this.triangles[0].arcs[2].trAB = this.triangles[1];
     this.triangles[1].arcs[0].trBA = this.triangles[0];
 
-    //Добавление суперструктуры в кэш
     this.cache.Add(this.triangles[0]);
     this.cache.Add(this.triangles[1]);
 
@@ -36,12 +33,10 @@ class Triangulation {
       CurentTriangle = this.GetTriangleForPoint(_points[i]);
 
       if (CurentTriangle !== null) {
-        //Создание новых ребер, которые совместно с ребрами преобразуемого треугольника образуют новые три треугольника
         NewArc0 = new Arc(CurentTriangle.points[0], _points[i]);
         NewArc1 = new Arc(CurentTriangle.points[1], _points[i]);
         NewArc2 = new Arc(CurentTriangle.points[2], _points[i]);
 
-        //Сохранение ребер преобразуемого треугольника
         OldArc0 = CurentTriangle.GetArcBeatwen2Points(
           CurentTriangle.points[0],
           CurentTriangle.points[1]
@@ -55,18 +50,15 @@ class Triangulation {
           CurentTriangle.points[0]
         );
 
-        //Преобразование текущего треугольника в один из новых трех
         NewTriangle0 = CurentTriangle;
         NewTriangle0.arcs[0] = OldArc0;
         NewTriangle0.arcs[1] = NewArc1;
         NewTriangle0.arcs[2] = NewArc0;
         NewTriangle0.points[2] = _points[i];
 
-        //Дополнительно создаются два треугольника
         NewTriangle1 = new Triangle(OldArc1, NewArc2, NewArc1);
         NewTriangle2 = new Triangle(OldArc2, NewArc0, NewArc2);
 
-        //Новым ребрам передаются ссылки на образующие их треугольники
         NewArc0.trAB = NewTriangle0;
         NewArc0.trBA = NewTriangle2;
         NewArc1.trAB = NewTriangle1;
@@ -74,7 +66,6 @@ class Triangulation {
         NewArc2.trAB = NewTriangle2;
         NewArc2.trBA = NewTriangle1;
 
-        //Передача ссылок на старые ребра
         if (OldArc0.trAB === CurentTriangle) OldArc0.trAB = NewTriangle0;
         if (OldArc0.trBA === CurentTriangle) OldArc0.trBA = NewTriangle0;
 
@@ -96,7 +87,7 @@ class Triangulation {
         this.CheckDelaunayAndRebuild(OldArc2);
       }
     }
-    //Дополнительные проходы, улучшают соответствие условию Делоне
+
     for(var i = 0; i < 2; i++){
       for (var z = 0; z < this.triangles.length; z++) {
         this.CheckDelaunayAndRebuild(this.triangles[z].arcs[0]);
@@ -206,7 +197,7 @@ class Triangulation {
     CurentPoints[2] = arc.B;
     CurentPoints[3] = T2.GetThirdPoint(arc);
 
-    //Дополнительная проверка, увеличивает скорость алгоритма на 10%
+    //additional verification, increase performance by 10%
     if (
       Arc.ArcIntersectForPoints(
         CurentPoints[0],
@@ -243,11 +234,9 @@ class Triangulation {
           NewArcT2A2 = OldArcT2A1;
         }
 
-        //Изменение ребра
         arc.A = CurentPoints[0];
         arc.B = CurentPoints[3];
 
-        //переопределение ребер треугольников
         T1.arcs[0] = arc;
         T1.arcs[1] = NewArcT1A1;
         T1.arcs[2] = NewArcT1A2;
@@ -256,7 +245,6 @@ class Triangulation {
         T2.arcs[1] = NewArcT2A1;
         T2.arcs[2] = NewArcT2A2;
 
-        //перезапись точек треугольников
         T1.points[0] = arc.A;
         T1.points[1] = arc.B;
         T1.points[2] = Arc.GetCommonPoint(NewArcT1A1, NewArcT1A2);
@@ -265,20 +253,18 @@ class Triangulation {
         T2.points[1] = arc.B;
         T2.points[2] = Arc.GetCommonPoint(NewArcT2A1, NewArcT2A2);
 
-        //Переопределение ссылок в ребрах
         if (NewArcT1A2.trAB === T2) NewArcT1A2.trAB = T1;
         else if (NewArcT1A2.trBA === T2) NewArcT1A2.trBA = T1;
 
         if (NewArcT2A1.trAB === T1) NewArcT2A1.trAB = T2;
         else if (NewArcT2A1.trBA === T1) NewArcT2A1.trBA = T2;
 
-        //Добавление треугольников в кэш
         this.cache.Add(T1);
         this.cache.Add(T2);
       }
     }
   }
-  //Возвращает триугольник в котором находится данная точка
+
   GetTriangleForPoint(_point) {
     var link = this.cache.FindTriangle(_point);
 
@@ -289,7 +275,6 @@ class Triangulation {
     if (this.IsPointInTriangle(link, _point)) {
       return link;
     } else {
-      //Путь от некоторого треугольниа до искомой точки
       var way = new Arc(_point, link.centroid);
       var CurentArc = null;
 

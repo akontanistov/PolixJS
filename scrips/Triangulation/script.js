@@ -13,7 +13,6 @@ var file = null;
 var triangulation = null;
 var img = new Image();
 
-//Запуск окна выбора файла
 function ChooseFile(){
 
   var input = document.createElement('input');
@@ -29,17 +28,14 @@ function ChooseFile(){
   
      reader.onload = event => {
         img.addEventListener("load", () => {
-          //Скрытие блока для загрузки изображения
           document.getElementById("chooseBox").className = 'center disable';
           document.getElementById("canvasBox").className = 'block__canvas';
           document.getElementById("mainBox").className = 'block active';
           document.getElementById("btnRun").className = '';
 
-          //Установка размеров canvas по размеру изображения
           canvas.width = img.naturalWidth;
           canvas.height = img.naturalHeight;
 
-          //Запись изображения в canvas
           context.clearRect(0, 0, context.canvas.width, context.canvas.height);
           context.drawImage(img, 0, 0);
         });
@@ -51,14 +47,11 @@ function ChooseFile(){
   input.click();
 }
 
-//Обработка drug and drop файла
 function dragOverHandler(e) {
-  // Prevent default behavior (Prevent file from being opened)
   e.preventDefault();
 }
 
 function dropHandler(e) {
-  // Prevent default behavior (Prevent file from being opened)
   e.preventDefault();
 
   file = e.dataTransfer.files[0];
@@ -69,17 +62,15 @@ function dropHandler(e) {
   
     reader.onload = event => {
        img.addEventListener("load", () => {
-         //Скрытие блока для загрузки изображения
+         
          document.getElementById("chooseBox").className = 'center disable';
          document.getElementById("canvasBox").className = 'block__canvas';
          document.getElementById("mainBox").className = 'block active';
          document.getElementById("btnRun").className = '';
   
-         //Установка размеров canvas по размеру изображения
          canvas.width = img.naturalWidth;
          canvas.height = img.naturalHeight;
   
-         //Запись изображения в canvas
          context.clearRect(0, 0, context.canvas.width, context.canvas.height);
          context.drawImage(img, 0, 0);
        });
@@ -101,17 +92,14 @@ function dropHandlerOld(e) {
 
   reader.onload = event => {
      img.addEventListener("load", () => {
-       //Скрытие блока для загрузки изображения
        document.getElementById("chooseBox").className = 'center disable';
        document.getElementById("canvasBox").className = 'block__canvas';
        document.getElementById("mainBox").className = 'block active';
        document.getElementById("btnRun").className = '';
 
-       //Установка размеров canvas по размеру изображения
        canvas.width = img.naturalWidth;
        canvas.height = img.naturalHeight;
 
-       //Запись изображения в canvas
        context.clearRect(0, 0, context.canvas.width, context.canvas.height);
        context.drawImage(img, 0, 0);
      });
@@ -127,7 +115,6 @@ function Run(){
   }
   else{
 
-    //активация кнопки сохранения и очистки
     document.getElementById("btnSave").className = '';
     document.getElementById("btnClean").className = '';
 
@@ -140,24 +127,19 @@ function Run(){
   
     var articlesCount = document.getElementById("trianglesValue").value;
   
-    //Содание облака точек
     RndVectors(articlesCount, points);
   
-    //Триангуляция облака точек
     triangulation = new Triangulation(points);
     var triangles = triangulation.triangles.length;
     var triangle = null;
   
-    //Отрисовка треугольников
     for (var j = 0; j < triangles; j++) {
       triangle = triangulation.triangles[j];
 
-      //Определение координат центра треугольника
       var center = triangle.centroid;
       var centerX = Math.trunc(center.x);
       var centerY = Math.trunc(center.y);
   
-      //Определение цвета в центре треугольника
       var color = context.getImageData(centerX, centerY, 1, 1).data;
       var colorRGB = 'rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')';
   
@@ -171,7 +153,6 @@ function Run(){
     }
   }
 
-    //Остановка индикатора загрузки
     document.getElementById("spinerBox").className = 'cssload-container';
 }
 
@@ -193,7 +174,6 @@ function Clean(){
   else
   {
 
-    //отключение кнопки очистки и сохранения
     document.getElementById("btnClean").className = 'disable';
     document.getElementById("btnSave").className = 'disable';
 
@@ -204,11 +184,9 @@ function Clean(){
   
     reader.onload = event => {
        img.addEventListener("load", () => {
-         //Установка размеров canvas по размеру изображения
          canvas.width = img.naturalWidth;
          canvas.height = img.naturalHeight;
   
-         //Запись изображения в canvas
          context.clearRect(0, 0, context.canvas.width, context.canvas.height);
          context.drawImage(img, 0, 0);
        });

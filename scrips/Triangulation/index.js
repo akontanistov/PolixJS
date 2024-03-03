@@ -40,13 +40,6 @@ for (var j = 0; j < triangles; j++) {
   ctx.lineTo(_triangle.arcs[2].B.x, _triangle.arcs[2].B.y);
   ctx.stroke();
 
-  //ctx.beginPath();
-  //ctx.strokeStyle = "white";
-  //ctx.moveTo(_triangle.points[0].x, _triangle.points[0].y);
-  //ctx.lineTo(_triangle.points[1].x, _triangle.points[1].y);
-  //ctx.lineTo(_triangle.points[2].x, _triangle.points[2].y);
-  //ctx.closePath();
-  //ctx.stroke();
 }
 end = new Date().getTime();
 console.log(end - start);

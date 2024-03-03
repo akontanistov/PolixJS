@@ -1,14 +1,9 @@
 class DynamicCache {
-  //sizeOfSpace : Vector2
   constructor(_sizeOfspace) {
     this.Cache = [];
-    //Текущий размер кэша
     this.Size = 2;
-    //Треугольников в кэше
     this.InCache = 0;
-    //Реальные размеры кэшируемого пространства
     this.SizeOfSpace = _sizeOfspace;
-    //Размеры одной ячейки кэша в пересчете на реальное пространство
     this.xSize = this.SizeOfSpace.x / this.Size;
     this.ySize = this.SizeOfSpace.y / this.Size;
   }
@@ -31,7 +26,6 @@ class DynamicCache {
     this.Cache[this.GetKey(_T.centroid)] = _T;
   }
 
-  //Увеличивает размер кэша в 4 раза
   Increase() {
     var NewCache = [];
     NewCache.length = this.Size * 2 * this.Size * 2;

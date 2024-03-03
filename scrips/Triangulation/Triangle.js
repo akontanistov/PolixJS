@@ -1,6 +1,5 @@
 class Triangle {
   constructor(arg0, arg1, arg2) {
-    //Перегрузка Vector2, Vector2, Vector2
     if (
       arguments[0] instanceof Vector2 &&
       arguments[1] instanceof Vector2 &&
@@ -14,7 +13,6 @@ class Triangle {
       ];
       this.centroid;
     }
-    //Перегрузка Arc, Vector2
     else if (arguments[0] instanceof Arc && arguments[1] instanceof Vector2) {
       this.points = [arg0.A, arg0.B, arg1];
       this.arcs = [
@@ -23,20 +21,13 @@ class Triangle {
         new Arc(this.points[2], this.points[0])
       ];
     }
-    //Перегрузка Arc, Arc, Arc
     else if (
       arguments[0] instanceof Arc &&
       arguments[1] instanceof Arc &&
       arguments[2] instanceof Arc
     ) {
       this.arcs = [arg0, arg1, arg2];
-      //this.arcs[0] = arg0;
-      //this.arcs[1] = arg1;
-      //this.arcs[2] = arg2;
-
       this.points = [arg0.A, arg0.B];
-      //this.points[0] = arg0.A;
-      //this.points[1] = arg0.B;
 
       if (arg1.A === arg0.A || arg1.A === arg0.B) this.points[2] = arg1.B;
       else if (arg1.B === arg0.A || arg1.B === arg0.B) this.points[2] = arg1.A;
